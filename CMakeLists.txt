@@ -7,6 +7,10 @@ else()
   project (procmon VERSION 0.0.0)
 endif()
 
+# Set additional compiler flags
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ffat-lto-objects")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffat-lto-objects")
+
 # make ncurses a requirement
 find_package(Curses REQUIRED)
 
@@ -75,8 +79,6 @@ add_subdirectory(src/display)
 add_subdirectory(src/logging)
 
 # Add exectable and link all static libraries.
-#add_executable(procmon src/procmon.cpp)
-
 add_executable(
     procmon 
     src/procmon.cpp
