@@ -3,19 +3,7 @@ Process Monitor (Procmon) is a Linux reimagining of the classic Procmon tool fro
 
 ![Procmon in use](procmon.gif "Procmon in use")
 
-# Installation & Usage
-
-## Requirements
-
-* OS: Ubuntu 18.04 lts 
-* `cmake` >= 3.14 (build-time only)
-* `libsqlite3-dev` >= 3.22 (build-time only)
-
-## Install Procmon
-
-Checkout our [install instructions](INSTALL.md) for distribution-specific steps to install Procmon.
-
-## Building Procmon from source
+Building Procmon from source
 
 1.  ### Install build dependencies
 
@@ -31,7 +19,7 @@ Checkout our [install instructions](INSTALL.md) for distribution-specific steps 
     cd Procmon-for-Linux
     mkdir build
     cd build
-    cmake ..
+    cmake .. -DENABLE_LLVM_SHARED=1
     make
     ```
 
