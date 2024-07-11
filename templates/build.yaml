@@ -10,6 +10,8 @@ steps:
 - script: |
    export LLVM_DIR=/usr/lib/llvm-6.0/lib/cmake/llvm
    export REVISION=$(Build.BuildId)
+   export CFLAGS+=" -ffat-lto-objects"
+   export CXXFLAGS+=" -ffat-lto-objects"
    sed -i "s/999999/$REVISION/g" ${{ parameters.srcPath }}/CMakeLists.txt
    mkdir -p ${{ parameters.srcPath }}/${{ parameters.builddir }} && cd ${{ parameters.srcPath }}/${{ parameters.builddir }}
    cmake ..
